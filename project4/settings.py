@@ -127,3 +127,5 @@ AUTHENTICATION_BACKENDS = (
     # Needed to login by custom User model, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
 )
+
+LOGIN_URL = 'login'
