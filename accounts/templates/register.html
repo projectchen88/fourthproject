@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
+{% block content %}
+<section class='mt-5 p-5'>  
+    <h1>Registration</h1>
+    <form method='POST'>
+         {% csrf_token %}
+         {{ form.as_p }}
+         <input type="submit">
+    </form>
+    <hr> {% if messages %}
+    <div>
+        {% for message in messages %} {{ message }} {% endfor %}
+    </div>
+    {% endif %}
+    <p>If you already have an account, you can <a href="{% url 'login' %}">sign in </a></p>
+
+
+</section>
+{% endblock %}

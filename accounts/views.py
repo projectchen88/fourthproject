@@ -42,3 +42,7 @@ def login(request):
 @login_required        
 def profile(request):
     return render(request, 'profile.html')
+
+
+def register(request):
+    return render(request, 'register.html')
