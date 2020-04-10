@@ -18,7 +18,7 @@ class Dish(models.Model):
         )
     
     """ DISH INFO """
-    dish_info = models.CharField(
+    dish_info = models.TextField(
         max_length = 256,
         blank = False,
         default = "No info available"
@@ -44,7 +44,7 @@ class Dish(models.Model):
         )
 
     """ DISH PRICING """
-    dish_price = models.IntegerField(
+    dish_price = models.FloatField(
         default = 0.00,
         blank = False,
     )

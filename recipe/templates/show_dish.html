@@ -3,6 +3,16 @@
 {% block content %}
 <section class='mt-5 p-5'>
     <h1>Show Dish</h1>
+    {% for d in data %}
+        <table>
+            <tr>
+                <th>Dish name : </th>
+                <td>
+                    {{ d.dish_name }}
+                </td>
+            </tr>
+        </table>
+    {% endfor %}
     
 </section>
 {% endblock %}
