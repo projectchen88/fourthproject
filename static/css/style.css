@@ -1,5 +1,28 @@
-/*{% load static %}*/
-/*logo styling*/
+.bg-alert {
+    background-color: rgba(183, 245, 176, 0.7)
+}
+
+tr:nth-child(even) {
+  background-color: #daf7e2;
+}
+
+form label{
+    font-weight: bold;
+}
+
+/*styling for the previews for all the dishes*/
+.preview-box {
+    height: 200px;
+    width : 200px;
+}
+.preview-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
 .logo {
     font-family: fantasy;
     text-shadow: 5px 5px 10px #404240 ;
@@ -33,10 +56,7 @@ main {
     width: 100%;
 }
 /*scrolling function for the list of recipes*/
-.recipe-list{
-    width : 100%;
-    overflow-x : scroll;
-}
+
 /*change the opacity for the preview recipe row*/
 .bg-tinted {
     background-color: rgba(0,0,0,0.7)
@@ -50,15 +70,7 @@ main {
     background-color: rgb(230,230,230);
     box-shadow: 0 0 0.5px rgba(255, 255, 255, .5);
 }
-/*styling for the previews for all the recipes*/
-.preview-box {
-    height: 150px;
-    width : 200px;
-}
-.preview-box img {
-    max-width: 100%;
-    height: auto;
-}
+
 /*styling for recipe image */
 .recipe-box img {
     max-width: 100%;

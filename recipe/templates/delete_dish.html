@@ -2,8 +2,13 @@
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
 <section class='mt-5 p-5'>
-    <h1>Confirm Delete Dish</h1>
-    <a class="btn btn-danger" href= "../delete_dish/{{data.id}}"> Delete</a>
-
+    <div class="p-5 rounded w-75 mx-auto border text-center bg-light">
+        <div class="p-2 text-danger">
+            <h4>Temporary sold out or you like to remove <span class='text-dark'> {{ data.dish_name }}</span> from shelf !</h4>
+            <small><i>In the event that changes are not reflected immediately. It will be updated within 6 working hours.</i></small>
+        </div>
+        <a class="btn btn-dark text-light" href="{% url 'admin_page' %}"> Never mind</a>
+        <a class="btn btn-danger" href= "../delete_dish/{{data.id}}"> Remove from shelf</a>
+    </div>
 </section>
 {% endblock %}

@@ -1,24 +1,39 @@
 {% extends 'base.html' %} 
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
+{% if user.is_authenticated %}
+{% block login_message %} Welcome back, {% endblock %}
+{% endif %}
 {% block content %}
-<main class='mt-5 p-5'>
-{% if request.user.username %}
-    Logged In As:{{request.user.username}}
-    {% endif %}
-    
-    <hr> {% if messages %}
-    <div>
+<main class='mt-5 py-4 container-fluid'>
+    <div class='bg-alert text-success w-100 py-1 px-5 mx-0 rounded'>
+        <!--<i> Sweet Alert : You have a sweet message </i>-->
         {% for message in messages %} {{ message }} {% endfor %}
     </div>
-    {% endif %}
+    <div class='row w-100 p-3'>
+            <!--Display all dishes for sale-->
+            {% for d in data %}
+            <div class='col-lg-3 col-md-4 col-sm-6 col-12 pb-5 '>
+                <div class='preview-box my-0 mx-auto'>
+                    <a href=""><img src='static/images/default_image.jpg' alt=""></a>
+                </div>
+                <div class='px-2'>
+                    <div class='pl-2'>
+                        <strong>{{ d.dish_name }}</strong>
+                    </div>
+                    <div class='pl-2'>
+                        {{ d.dish_info }}
+                    </div>
+                    <br/>
+                    <div>
+                        <button class='btn btn-light' disabled>$ {{d.dish_price}}</button>
+                        <a class='ml-3 btn btn-success' href="">Order!</a>
+                    </div>
+                   
+                </div>
+            </div>
+            {% endfor %}
+        </div> 
 
-       
-        
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'profile' %}">Profile</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-
-        {% endif %}
-</ul>
+    
 </main>
 {% endblock %}

@@ -3,10 +3,14 @@ from django.contrib import auth, messages
 from accounts.forms import UserLoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from recipe.models import Dish
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    result = Dish.objects.all()
+    return render(request, 'index.html',{
+        'data' : result,
+    })
 
 @login_required    
 def logout(request):
