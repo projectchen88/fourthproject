@@ -30,11 +30,18 @@ def new_dish(request):
 @login_required
 def edit_dish(request, id):
     dish = get_object_or_404(Dish, pk=id)
-
-    edit_dish_form = EditDish(instance=dish)
-    return render(request,'edit_dish.html',{
-        'form'  :   edit_dish_form,
-    })
+    
+    if request.method == "POST":
+        edit_dish_entry = EditDish(request.POST, request.FILES, instance=dish)
+        if edit_dish_entry.is_valid():
+            edit_dish_entry.user = request.user
+            edit_dish_entry.save()
+        return redirect(admin_page)
+    else:
+        edit_dish_form = EditDish(instance=dish)
+        return render(request,'edit_dish.html',{
+            'form'  :   edit_dish_form,
+        })
 
 @login_required
 def confirm_delete_dish(request, id):
