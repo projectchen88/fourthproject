@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} {% block content %}
+<section class='mt-5 p-5'>
+
+    <h1>May our food bring you warmth and growth in the very best way</h1>
+    <!--Load data -->
+    <div class="row bg-light">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name of dish</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Pricing ($)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in data %}
+                <tr>
+                    <th scope="row"> </th>
+                    <td>{{ d.dish_name }}</td>
+                    <td>{{ d.dish_info }}</td>
+                    <td>{{ d.dish_store }}</td>
+                    <td>{{ d.dish_price }}</td>
+                    <td><small><a href="../recipe/edit_dish" class="text-muted"> Edit </a> | <a href="../recipe/confirm_delete_dish/{{d.id}}" class="text-muted"> Delete </a></small></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+
+    </div>
+
+
+
+
+</section>
+{% endblock %}
