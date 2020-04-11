@@ -24,7 +24,7 @@
                     <td>{{ d.dish_info }}</td>
                     <td>{{ d.dish_store }}</td>
                     <td>{{ d.dish_price }}</td>
-                    <td><small><a href="../recipe/edit_dish" class="text-muted"> Edit </a> | <a href="../recipe/confirm_delete_dish/{{d.id}}" class="text-muted"> Delete </a></small></td>
+                    <td><small><a href="../recipe/edit_dish/{{d.id}}" class="text-muted"> Edit </a> | <a href="../recipe/confirm_delete_dish/{{d.id}}" class="text-muted"> Delete </a></small></td>
                 </tr>
                 {% endfor %}
             </tbody>

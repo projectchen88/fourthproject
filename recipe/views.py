@@ -28,8 +28,10 @@ def new_dish(request):
         })
 
 @login_required
-def edit_dish(request):
-    edit_dish_form = EditDish()
+def edit_dish(request, id):
+    dish = get_object_or_404(Dish, pk=id)
+
+    edit_dish_form = EditDish(instance=dish)
     return render(request,'edit_dish.html',{
         'form'  :   edit_dish_form,
     })
