@@ -20,7 +20,7 @@ def new_dish(request):
             instance.user = request.user
             instance.save()
             pass
-        return redirect(index)
+        return redirect(show_dish)
 
 
     new_dish_entry = NewDish()
@@ -29,6 +29,13 @@ def new_dish(request):
     })
     
 @login_required
+def confirm_delete_dish(request, id):
+    result = get_object_or_404(Dish, pk=id)
+    return render(request, "delete_dish.html", {
+        'data' : result
+    })
+
+@login_required
 def delete_dish(request, id):
-    # Dish.objects.filter(pk=id).delete()
-    return render(request, "delete_dish.html")
+    Dish.objects.filter(pk=id).delete()
+    return redirect(show_dish)   
