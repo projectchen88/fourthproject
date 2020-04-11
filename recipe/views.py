@@ -27,3 +27,8 @@ def new_dish(request):
     return render(request, 'new_dish.html',{
         'form' : new_dish_entry
     })
+    
+@login_required
+def delete_dish(request, id):
+    # Dish.objects.filter(pk=id).delete()
+    return render(request, "delete_dish.html")
