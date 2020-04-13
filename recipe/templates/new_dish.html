@@ -4,7 +4,12 @@
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
 <section class='mt-5 p-5'>
-    <form method='POST' class="bg-light p-5 rounded w-75 mx-auto">
+    <form method='POST' class="bg-light px-5 pt-3 pb-5 rounded w-75 mx-auto">
+        <div class='mb-5'>
+        <a href="{% url 'index' %}"><i class='text-dark'>Home</i></a> > 
+        <a href="{% url 'admin_page' %}"><i class='text-dark'>Admin</i></a> > 
+        <i>New dish</i> 
+        </div>  
         <div class="p-2 text-danger">
             <h4>New Dish for sale !</h4>
             <small><i>In the event that changes are not reflected immediately. It will be updated within 6 working hours.</i></small>
