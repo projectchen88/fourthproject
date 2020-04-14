@@ -44,10 +44,10 @@ class Dish(models.Model):
         )
 
     """ DISH PRICING """
-    dish_price = models.IntegerField(
-        default = 0,
-        blank = False,
-    )
+    dish_price = models.DecimalField(
+        max_digits=6, 
+        decimal_places=2
+        )
     
     # photo = models.ImageField(
     #     upload_to = 'static/images', 

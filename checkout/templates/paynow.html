@@ -1,13 +1,8 @@
 
 {% extends 'base.html' %}
-
-{% block page_heading %}Donate!{%endblock%}
-
+{% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
 <h1>Paynow Page </h1>
- {{amount}}
- {{key}}
- 
 <form method="POST">
     {% csrf_token %}
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
