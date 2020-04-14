@@ -6,7 +6,10 @@ from recipe.models import Dish
 
 # Create your views here.
 def admin_page(request):
-    result = Dish.objects.all()
+    if request.user.is_superuser:
+        result = Dish.objects.all()
+    else:    
+        result = Dish.objects.filter(user = request.user )
     return render(request, 'admin_page.html', {
        'data':result,
     })
