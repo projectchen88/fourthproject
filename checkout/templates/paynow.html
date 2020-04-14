@@ -9,11 +9,24 @@
         <div class="p-2 text-success">
             <h4>Thank you for ordering <span class='text-dark'>{{ data.dish_name }} </span></h4>
             <small><i>The food will arrive at your location within the next 3 hours.</i></small>
-            <div class="p-1">
-                <label for='amount' class='text-dark'> Amount payable ($):</label>
-                <input readonly type='text' id='amount' name='amount' value={{data.dish_price}}>
+            
+            <div class="row w-75 mx-auto">
+                <table class='table'>
+                    <tr>
+                        <th>Your order</th>
+                        <td>:</td>
+                        <td>{{data.dish_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Amount to be charged</th>
+                        <td>:</td>
+                        <td>{{data.dish_price}}</td>
+                    </tr>
+                </table>
             </div>
-            <!--<a class='btn btn-success' href="../{{data.id}}/paynow/{{data.dish_price}}">Pay Now!</a>-->
+            
+            
+            <!--Route to payment using Stripe default-->
             <form method="POST">
                 {% csrf_token %}
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

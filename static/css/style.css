@@ -25,6 +25,7 @@ form label{
 .preview-box img {
     max-width: 100%;
     height: auto;
+    /*z-index : -1;*/
 }
 
 /*display background image*/
@@ -35,7 +36,9 @@ section {
     background-position: center;
     background-size: cover;
 }
-
+.bg-white {
+    background-color: white;
+}
 
 
 

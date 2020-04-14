@@ -4,7 +4,7 @@
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
 <section class='mt-5 p-5'>
-    <form method='POST' class="bg-light px-5 pt-3 pb-5 rounded w-75 mx-auto">
+    <form method='POST' class="bg-light px-5 pt-3 pb-5 rounded w-75 mx-auto" enctype="multipart/form-data">
         <div class='mb-5'>
         <a href="{% url 'index' %}"><i class='text-dark'>Home</i></a> > 
         <a href="{% url 'admin_page' %}"><i class='text-dark'>Admin</i></a> > 

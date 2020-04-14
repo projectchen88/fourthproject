@@ -5,18 +5,23 @@
 {% endif %}
 {% block content %}
 <main class='mt-5 py-4 container-fluid'>
+    {% if messages %}
     <div class='bg-alert text-success w-100 py-1 px-5 mx-0 rounded'>
         <!--<i> Sweet Alert : You have a sweet message </i>-->
         {% for message in messages %} {{ message }} {% endfor %}
     </div>
+    {% endif %}
     <div class='row w-100 p-3'>
             <!--Display all dishes for sale-->
             {% for d in data %}
             <div class='col-lg-3 col-md-4 col-sm-6 col-12 pb-5 '>
                 <div class='preview-box my-0 mx-auto'>
-                    <a href=""><img src='static/images/default_image.jpg' alt=""></a>
+                    {% if d.dish_image %}
+                        <img src="{{d.dish_image.url}}" />
+                    {% endif %}
+
                 </div>
-                <div class='px-2'>
+                <div class='px-2 bg-white'>
                     <div class='pl-2'>
                         <strong>{{ d.dish_name }}</strong>
                     </div>

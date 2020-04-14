@@ -12,7 +12,7 @@ class Dish(models.Model):
         
     """ DISH NAME """
     dish_name = models.CharField(
-        max_length = 32,
+        max_length = 64,
         blank = False,
         default = "Unnamed dish"
         )
@@ -49,11 +49,11 @@ class Dish(models.Model):
         decimal_places=2
         )
     
-    # photo = models.ImageField(
-    #     upload_to = 'static/images', 
-    #     default = 'static/images/no-default_image.jpg',
-    #     null = True,
-    #     )
+    dish_image = models.ImageField(
+        upload_to = 'images/', 
+        # default = 'default_image.jpg',
+        null = True,
+        )
     
     def __str__(self):
         return (self.dish_name)
