@@ -2,14 +2,29 @@
 {% extends 'base.html' %}
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
-<h1>Paynow Page </h1>
-<form method="POST">
-    {% csrf_token %}
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="{{ key }}"
-          data-description="Paynow"
-          data-amount="{{amount}}"
-          data-locale="auto"></script>
-    <input type='hidden' name='amount' value='{{amount}}'/>
-</form>
+
+
+<section class='mt-5 p-5'>
+    <div class="p-5 rounded w-75 mx-auto border text-center bg-light">
+        <div class="p-2 text-success">
+            <h4>Thank you for ordering <span class='text-dark'>{{ data.dish_name }} </span></h4>
+            <small><i>The food will arrive at your location within the next 3 hours.</i></small>
+            <div class="p-1">
+                <label for='amount' class='text-dark'> Amount payable ($):</label>
+                <input readonly type='text' id='amount' name='amount' value={{data.dish_price}}>
+            </div>
+            <!--<a class='btn btn-success' href="../{{data.id}}/paynow/{{data.dish_price}}">Pay Now!</a>-->
+            <form method="POST">
+                {% csrf_token %}
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="{{ key }}"
+                      data-description="Paynow"
+                      data-amount="{{amount}}"
+                      data-locale="auto"></script>
+                <input type='hidden' name='amount' value='{{amount}}'/>
+            </form>
+
+        </div>
+    </div>
+</section>
 {%endblock%}

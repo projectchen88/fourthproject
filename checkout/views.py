@@ -5,49 +5,23 @@ import stripe
 from django.conf import settings
 
 # Create your views here.
-def checkout(request, id):
+def paynow(request, id):
     result = get_object_or_404(Dish, pk=id)
-    return render(request,'checkout.html',{
-    'data' : result
-    })
-    # else:
-        # return render(request, 'paynow.html')
-    
-
-# def paynow(request):
-#     if request.method == 'GET':
-#         amount = 1000 # or request.GET['amount']
-#         key = settings.STRIPE_PUBLISHABLE_KEY #1
-#         return render(request, 'donate/charge.html',{
-#             'key' : key,
-#             'amount' : amount
-#         })
-#     else:
-#         stripe.api_key = settings.STRIPE_SECRET_KEY #2
-#         charge = stripe.Charge.create(
-#             amount= 1000,
-#             currency='sgd',
-#             description='Test charge',
-#             source=request.POST['stripeToken']
-#         )
-#         return redirect(reverse('index'))
-
-def paynow(request, id, dish_price):
-    result = get_object_or_404(Dish, pk=id)
+    amount = int(result.dish_price * 100)
 
     if request.method == 'GET':
         key = settings.STRIPE_PUBLISHABLE_KEY #1
-        amount = result.dish_price
         return render(request, 'paynow.html', {
             'key' : key,
-            'amount' : dish_price
+            'amount' : amount,
+            'data' : result,
         })
     else:
         stripe.api_key = settings.STRIPE_SECRET_KEY #2
         charge = stripe.Charge.create(
-            amount= dish_price,
+            amount= amount,
             currency='sgd',
-            description='Test charge',
+            description='2nd charge',
             source=request.POST['stripeToken']
         )
         return redirect(reverse('index'))

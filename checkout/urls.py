@@ -1,7 +1,6 @@
 from django.urls import path
-from checkout.views import checkout, paynow
+from checkout.views import paynow
 
 urlpatterns = [
-    path('<id>/', checkout, name='checkout'),
-    path('<id>/paynow/<dish_price>/', paynow, name='paynow'),
+    path('paynow/<id>/', paynow, name='paynow'),
 ]
