@@ -5,19 +5,14 @@
 <section class='mt-5 p-5'>
     <div class="p-5 rounded w-75 mx-auto border text-center bg-light">
         <div class="p-2 text-success">
-            <h4>Thank you for ordering <span class='text-dark'>{{ data.dish_name }}} </span></h4>
+            <h4>Thank you for ordering <span class='text-dark'>{{ data.dish_name }} </span></h4>
             <small><i>The food will arrive at your location within the next 3 hours.</i></small>
-            <div>
-                <form  method='POST' action='{% url 'paynow' %}'>
-                    {% csrf_token %}
-                    <div class="p-1">
-                        <label for='amount text-dark'> Amount payable ($):</label>
-                        <input type='text' id='amount' name='amount' value='{{ data.dish_price }}'/>
-                    </div>
-                    <input class='btn btn-success' type='submit' value='Pay Now!'/>
-                </form>
+            <div class="p-1">
+                <label for='amount' class='text-dark'> Amount payable ($):</label>
+                <input type='text' id='amount' name='amount' value={{data.dish_price}}>
             </div>
-            
+            <a class='btn btn-success' href="../{{data.id}}/paynow/{{data.dish_price}}">Pay Now!</a>
+
         </div>
     </div>
 </section>

@@ -3,5 +3,5 @@ from checkout.views import checkout, paynow
 
 urlpatterns = [
     path('<id>/', checkout, name='checkout'),
-    path('paynow/', paynow, name='paynow'),
+    path('<id>/paynow/<dish_price>/', paynow, name='paynow'),
 ]

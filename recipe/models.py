@@ -44,8 +44,8 @@ class Dish(models.Model):
         )
 
     """ DISH PRICING """
-    dish_price = models.FloatField(
-        default = 0.00,
+    dish_price = models.IntegerField(
+        default = 0,
         blank = False,
     )
     
