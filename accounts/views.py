@@ -6,19 +6,21 @@ from django.contrib.auth import get_user_model
 from recipe.models import Dish
 
 # Create your views here.
+""" Landing page to display all dishes """
 def index(request):
     result = Dish.objects.all()
     return render(request, 'index.html',{
         'data' : result,
     })
 
+""" Logout route """
 @login_required    
 def logout(request):
     auth.logout(request)
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('index'))
     
-
+""" Login route """    
 def login(request):
     """Returns the login page"""
     if request.method == 'POST':
@@ -44,12 +46,7 @@ def login(request):
             'form':login_form
         })
 
-@login_required        
-def profile(request):
-    return render(request, 'profile.html')
-
-
-
+""" Register route """
 def register(request):
     User = get_user_model()
     if request.method == 'POST':

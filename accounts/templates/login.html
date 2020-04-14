@@ -1,18 +1,18 @@
 {% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+
 {% block page_title %}No. 1 Food Recipe | Enjoy the best food in life !{% endblock %} 
 {% block content %}
 <section class='mt-5 p-5'>  
-    <h1>Login</h1>
-    <form method='POST'>
-         {% csrf_token %}
-         {{ form.as_p }}
-         <input type="submit">
-    </form>
-    <hr> {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
+    <div class='w-75 p-5 bg-light rounded'>
+        <h1>Login</h1>
+        <form method='POST'>
+             {% csrf_token %}
+             {{ form|crispy }}
+             <input type="submit">
+        </form>
     </div>
-    {% endif %}
+    
 
 </section>
 {% endblock %}

@@ -3,20 +3,41 @@
     font-family: fantasy;
     text-shadow: 5px 5px 10px #404240 ;
 }
-
-
+.banner {
+    height: 20rem;
+    width:100%;
+    background-image: url('/media/images/ingredients-banner.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+/*sweet messages background color*/
 .bg-alert {
-    background-color: rgba(183, 245, 176, 0.7)
+    background-color: rgba(183, 245, 176, 0.8);
+    color : gray;
+    height : 2rem;
+    -webkit-animation: fadeOut 10s;
+    animation: fadeOut 10s;
+    visibility: hidden;
+}
+@keyframes fadeOut {
+    0% { opacity: 1; visibility: visible; }
+    50% { opacity: 0.9; }
+    60% { opacity: 0.8; }
+    70% { opacity: 0.6; }
+    80% { opacity: 0.4; }
+    90% { opacity: 0.2; }
+    100% { opacity: 0; visibility: hidden; }
 }
 
+/*set the table rows to be alternate colors*/
 tr:nth-child(even) {
   background-color: #daf7e2;
 }
-
-form label{
+/*set form label to be bold*/
+form label {
     font-weight: bold;
 }
-
 /*styling for the previews for all the dishes*/
 .preview-box {
     height: 200px;
@@ -27,18 +48,13 @@ form label{
     height: auto;
     /*z-index : -1;*/
 }
-
 /*display background image*/
 section {
-    height: 100vh;
-    background-image: url('/static//images/carrots-food-fresh-freshness-616401.jpg');
+    height: auto;
+    min-height:100vh;
+    background-image: url('/media/images/carrots-food-fresh-freshness-616401.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.bg-white {
-    background-color: white;
-}
-
-
 
